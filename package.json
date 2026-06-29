@@ -1,0 +1,19 @@
+{
+  "name": "moa-demo",
+  "version": "0.1.0",
+  "description": "A small TypeScript utility library used to dogfood Moa's GitHub workflows.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "keywords": ["utils", "demo", "moa"],
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}
