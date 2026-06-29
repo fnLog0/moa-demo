@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { capitalize, reverse, truncate } from "../src/strings.js";
+import { capitalize, reverse, truncate, slugify } from "../src/strings.js";
 
 describe("capitalize", () => {
   it("uppercases the first character", () => {
@@ -22,5 +22,17 @@ describe("truncate", () => {
   });
   it("cuts and appends an ellipsis", () => {
     expect(truncate("hello world", 5)).toBe("hello…");
+  });
+});
+
+describe("slugify", () => {
+  it("lowercases and replaces punctuation with a hyphen", () => {
+    expect(slugify("Hello, World!")).toBe("hello-world");
+  });
+  it("collapses repeated non-alphanumeric chars and trims edge hyphens", () => {
+    expect(slugify("  Foo__Bar  ")).toBe("foo-bar");
+  });
+  it("returns empty string for empty input", () => {
+    expect(slugify("")).toBe("");
   });
 });

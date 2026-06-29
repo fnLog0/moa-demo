@@ -17,3 +17,11 @@ export function truncate(input: string, max: number): string {
   if (input.length <= max) return input;
   return input.slice(0, max) + "…";
 }
+
+/** Convert a string to a URL-friendly slug. */
+export function slugify(input: string): string {
+  return input
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
