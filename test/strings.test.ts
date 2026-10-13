@@ -23,6 +23,12 @@ describe("truncate", () => {
   it("cuts and appends an ellipsis", () => {
     expect(truncate("hello world", 5)).toBe("hello…");
   });
+  it("returns an empty string when max is 0", () => {
+    expect(truncate("hello", 0)).toBe("");
+  });
+  it("throws on a negative max", () => {
+    expect(() => truncate("hello", -1)).toThrow(RangeError);
+  });
 });
 
 describe("slugify", () => {

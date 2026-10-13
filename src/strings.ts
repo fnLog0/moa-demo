@@ -13,7 +13,8 @@ export function reverse(input: string): string {
 
 /** Truncate `input` to at most `max` characters, appending `…` when cut. */
 export function truncate(input: string, max: number): string {
-  if (max < 0) throw new RangeError("max must be >= 0");
+  if (!(max >= 0)) throw new RangeError("max must be >= 0");
+  if (max === 0) return "";
   if (input.length <= max) return input;
   return input.slice(0, max) + "…";
 }
