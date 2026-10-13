@@ -21,7 +21,20 @@ describe("truncate", () => {
     expect(truncate("hi", 5)).toBe("hi");
   });
   it("cuts and appends an ellipsis", () => {
-    expect(truncate("hello world", 5)).toBe("hello…");
+    expect(truncate("hello world", 5)).toBe("hell…");
+  });
+  it("never exceeds max, including the ellipsis", () => {
+    expect(truncate("hello world", 1)).toBe("…");
+    expect(truncate("hello world", 5).length).toBe(5);
+  });
+  it("returns an empty string when max is 0", () => {
+    expect(truncate("hello", 0)).toBe("");
+  });
+  it("throws on NaN", () => {
+    expect(() => truncate("hello", NaN)).toThrow(RangeError);
+  });
+  it("throws on a negative max", () => {
+    expect(() => truncate("hello", -1)).toThrow(RangeError);
   });
 });
 
