@@ -21,7 +21,8 @@ describe("truncate", () => {
     expect(truncate("hi", 5)).toBe("hi");
   });
   it("cuts and appends an ellipsis", () => {
-    expect(truncate("hello world", 5)).toBe("hello…");
+    expect(truncate("hello world", 5)).toBe("hell…");
+    expect(truncate("hello world", 5)).toHaveLength(5);
   });
 });
 
