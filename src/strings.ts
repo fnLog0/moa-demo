@@ -15,7 +15,8 @@ export function reverse(input: string): string {
 export function truncate(input: string, max: number): string {
   if (max < 0) throw new RangeError("max must be >= 0");
   if (input.length <= max) return input;
-  return input.slice(0, max) + "…";
+  if (max === 0) return "";
+  return input.slice(0, max - 1) + "…";
 }
 
 /** Convert a string to a URL-friendly slug. */
