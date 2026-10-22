@@ -13,7 +13,7 @@ export function reverse(input: string): string {
 
 /** Truncate `input` to at most `max` characters, appending `…` when cut. */
 export function truncate(input: string, max: number): string {
-  if (!(max >= 0)) throw new RangeError("max must be >= 0");
+  if (!(max >= 0) || !Number.isFinite(max)) throw new RangeError("max must be a finite number >= 0");
   if (input.length <= max) return input;
   // Nothing fits, not even the ellipsis.
   if (max === 0) return "";
