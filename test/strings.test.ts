@@ -14,6 +14,9 @@ describe("reverse", () => {
   it("reverses characters", () => {
     expect(reverse("abc")).toBe("cba");
   });
+  it("keeps surrogate pairs intact", () => {
+    expect(reverse("hi😀")).toBe("😀ih");
+  });
 });
 
 describe("truncate", () => {

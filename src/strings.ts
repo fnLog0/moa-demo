@@ -6,9 +6,9 @@ export function capitalize(input: string): string {
   return input[0].toUpperCase() + input.slice(1);
 }
 
-/** Reverse a string by code unit. */
+/** Reverse a string by code point, keeping surrogate pairs intact. */
 export function reverse(input: string): string {
-  return input.split("").reverse().join("");
+  return [...input].reverse().join("");
 }
 
 /** Truncate `input` to at most `max` characters, appending `…` when cut. */
