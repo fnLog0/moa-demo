@@ -8,6 +8,13 @@ describe("chunk", () => {
   it("keeps a short final chunk", () => {
     expect(chunk([1, 2, 3], 2)).toEqual([[1, 2], [3]]);
   });
+  it("throws RangeError on NaN size", () => {
+    expect(() => chunk([1, 2], NaN)).toThrow(RangeError);
+  });
+  it("throws RangeError on size <= 0", () => {
+    expect(() => chunk([1, 2], 0)).toThrow(RangeError);
+    expect(() => chunk([1, 2], -1)).toThrow(RangeError);
+  });
 });
 
 describe("unique", () => {
