@@ -39,6 +39,9 @@ describe("truncate", () => {
   it("throws on a negative max", () => {
     expect(() => truncate("hello", -1)).toThrow(RangeError);
   });
+  it("throws on an infinite max", () => {
+    expect(() => truncate("hello", Infinity)).toThrow(RangeError);
+  });
 });
 
 describe("slugify", () => {
